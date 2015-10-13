@@ -6,9 +6,10 @@ import xmltodict
 # Misschien soort geschiedenis van films bijhouden. Elke dag api opslaan in nieuwe file met datum naam
 def verbind_en_schrijf():
     datum = datetime.date.today();datum = datum.strftime("%d-%m-%Y")
+    print(datum)
     try:
-        request = requests.get('http://www.filmtotaal.nl/api/filmsoptv.xml?apikey=qx4ugph3my32lh95qf4wixt7zxo9qee5&dag=' + datum + '&sorteer=0')
-        bestand = open('films.xml', 'w')
+        request = requests.get('http://www.filmtotaal.nl/api/filmsoptv.xml?apikey=qx4ugph3my32lh95qf4wixt7zxo9qee5&dag=13-10-2015&sorteer=0')
+        bestand = open('film.xml', 'w')
         bestand.write(str(request.text))
         bestand.close()
     except:
